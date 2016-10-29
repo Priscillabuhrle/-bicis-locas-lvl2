@@ -1,46 +1,88 @@
 
+
+var mensajePersonalizado= document.querySelector("span").alert;
   //validacion del formulario
 function validateForm() {
   //validar nombre
   var nombre= document.getElementById("name");
   if(nombre.value == null || nombre.value.length==0 || /^\s+$/.test(nombre.value)){
-      span-alert-success("Debe ingresar su nombre");
+     //alert ("Debe ingresar su nombre");
+    var cajaMadre = document.getElementsByClassName ("name-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("Debe ingresar su nombre");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return false;
   }
    //solo letras
    else if(/^^[a-zA-Z]*$/.test(nombre.value) == false){
-     alert ("Nombre no valido, ingresar solo letras");
+    // alert ("Nombre no valido, ingresar solo letras");
+    var cajaMadre = document.getElementsByClassName ("name-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("Nombre no valido, ingresar solo letras");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return true;
   }    
   //primera mayúscula
   else if(nombre.value.charAt(0).toUpperCase()!== nombre.value.charAt(0)){
-    alert ("La primera letra debe ser mayúscula");
+    //alert ("La primera letra debe ser mayúscula");
+    var cajaMadre = document.getElementsByClassName ("name-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("La primera letra debe ser mayúscula");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return false;
   }
   //validar input apellido
   var apellido= document.getElementById("lastname");
   if(apellido.value == null || apellido.value.length == 0 || /^\s+$/.test(apellido.value)){
-    alert("Debe ingresar Apellido");
+    //alert("Debe ingresar Apellido");
+    var cajaMadre = document.getElementsByClassName ("lastname-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("Debe ingresar Apellido");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return false;
   }
   else if(/^^[a-zA-Z]*$/.test(apellido.value) == false){
-    alert ("Debe ingresar solo letras");
+    //alert ("Debe ingresar solo letras");
+    var cajaMadre = document.getElementsByClassName ("lastname-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("Debe ingresar solo letras");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return true;
   }
   else if(apellido.value.charAt(0).toUpperCase()!== apellido.value.charAt(0)){
-    alert ("La primera letra debe ser en mayúscula");
+    //alert ("La primera letra debe ser en mayúscula");
+    var cajaMadre = document.getElementsByClassName ("lastname-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("La primera letra debe ser en mayúscula");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return false;
   }
 
   //validar correo
   var correo= document.getElementById("input-email");
   if(correo.value === null || correo.value.length == 0 || /^\s+$/.test(correo.value)){
-    alert("Debe ingresar su correo");
+    //alert("Debe ingresar su correo");
+    var cajaMadre = document.getElementsByClassName ("email-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("Debe ingresar su correo");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return false;
   }
   var simb= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if(!simb.test(correo.value)){
-    alert ("Ingresar correo electrónico valido");
+    //alert ("Ingresar correo electrónico valido");
+    var cajaMadre = document.getElementsByClassName ("email-container")[0];
+    var cajaTexto = document.createElement("span");
+    var texto = document.createTextNode("Ingresar correo electrónico valido");
+    cajaTexto.appendChild(texto);
+    cajaMadre.appendChild(cajaTexto);
     return false; 
   }
 
