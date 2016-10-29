@@ -1,6 +1,5 @@
-function validateForm(){
-	/* Escribe tú código aquí */
-	
+
+
   //validacion del formulario
 function validateForm() {
   //validar nombre
