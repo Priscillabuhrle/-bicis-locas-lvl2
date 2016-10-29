@@ -1,16 +1,15 @@
 
-
-  //validacion del formulario y segunda parte
+  //validacion del formulario
 function validateForm() {
   //validar nombre
   var nombre= document.getElementById("name");
   if(nombre.value == null || nombre.value.length==0 || /^\s+$/.test(nombre.value)){
-    alert("Debe ingresar su nombre");
+      span-alert-success("Debe ingresar su nombre");
     return false;
   }
    //solo letras
    else if(/^^[a-zA-Z]*$/.test(nombre.value) == false){
-    alert ("Nombre no valido, ingresar solo letras");
+     alert ("Nombre no valido, ingresar solo letras");
     return true;
   }    
   //primera mayúscula
@@ -52,7 +51,7 @@ function validateForm() {
       alert("Tiene que ingresar contraseña");
       return false;
     }
-    if (contrasena.value.length < 6){
+    if (contrasena.value.length > 6){
       alert("Ingresar contraseña valida");
       return false;
     } else if (contrasena.value=="contrasena"){
@@ -74,8 +73,8 @@ function validateForm() {
     var form= document.getElementsByClassName("form-control").selectedIndex;
     if(form == null || form == 0){
       alert("Elija una bicicleta");
+      return false;
     }
   }
   eleccion();
-}
 }
