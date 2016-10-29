@@ -1,6 +1,6 @@
 
 
-  //validacion del formulario
+  //validacion del formulario y segunda parte
 function validateForm() {
   //validar nombre
   var nombre= document.getElementById("name");
