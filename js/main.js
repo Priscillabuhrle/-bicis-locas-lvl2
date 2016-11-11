@@ -90,20 +90,41 @@ function validateForm() {
   var contrasena = document.getElementById("input-password");
   function contrasenaValida(){
     if(contrasena.value.length ==0){
-      alert("Tiene que ingresar contraseña");
+      //alert("Tiene que ingresar contraseña");
+      var cajaMadre = document.getElementsByClassName("form-group")[0];
+      var cajaTexto = document.createElement("span");
+      var texto = document.createTextNode("Tiene que ingresar contraseña");
+      cajaTexto.appendChild(texto);
+      cajaMadre.appendChild(cajaTexto);
       return false;
     }
-    if (contrasena.value.length > 6){
-      alert("Ingresar contraseña valida");
+    if (contrasena.value.length < 6){
+      var cajaMadre = document.getElementsByClassName("form-group")[0];
+      var cajaTexto = document.createElement("span");
+      var texto = document.createTextNode("La contraseña debe ser mínimo 6 dígitos ");
+      cajaTexto.appendChild(texto);
+      cajaMadre.appendChild(cajaTexto);
       return false;
     } else if (contrasena.value=="contrasena"){
-      alert("Ingresar contraseña valida");
+      var cajaMadre = document.getElementsByClassName("form-group")[0];
+      var cajaTexto = document.createElement("span");
+      var texto = document.createTextNode("Ingresar contraseña valida");
+      cajaTexto.appendChild(texto);
+      cajaMadre.appendChild(cajaTexto);
       return false; 
     } else if (contrasena.value =="123456"){
-      alert("Ingresar contraseña valida");
+     var cajaMadre = document.getElementsByClassName("form-group")[0];
+      var cajaTexto = document.createElement("span");
+      var texto = document.createTextNode("No deben ser números correlativos");
+      cajaTexto.appendChild(texto);
+      cajaMadre.appendChild(cajaTexto);
       return false;
     } else if (contrasena.value =="098754"){
-      alert("Ingresar contraseña valida");
+      var cajaMadre = document.getElementsByClassName("form-group")[0];
+      var cajaTexto = document.createElement("span");
+      var texto = document.createTextNode("Ingresar contraseña valida");
+      cajaTexto.appendChild(texto);
+      cajaMadre.appendChild(cajaTexto);
       return false;
     }else{
       return true;
@@ -111,12 +132,21 @@ function validateForm() {
   }
   contrasenaValida();
   // validar lista
+
   function eleccion(){
-    var form= document.getElementsByClassName("form-control").selectedIndex;
+    var form= document.querySelector("select").value;
     if(form == null || form == 0){
-      alert("Elija una bicicleta");
+      var listapb = document.getElementsByClassName("form-group input-box")[1].classList.add("form");
+      var cajaEleccion= document.getElementsByClassName("form")[0];
+      var cajaTexto = document.createElement("span");
+      var texto = document.createTextNode("Elija una bicicleta");
+      cajaTexto.appendChild(texto);
+      cajaEleccion.appendChild(cajaTexto);
       return false;
+    }else{
+      return true;
     }
   }
   eleccion();
 }
+ 
