@@ -1,6 +1,6 @@
 
 
-var mensajePersonalizado= document.querySelector("span").alert;
+/*var mensajePersonalizado= document.querySelector("span").alert;
   //validacion del formulario
 function validateForm() {
   //validar nombre
@@ -148,5 +148,129 @@ function validateForm() {
     }
   }
   eleccion();
+}*/
+
+/*ejercicio validación con jquery blanca*/
+
+function validarCampoTexto(input){
+  var mensaje = "";   
+  if($(input).val() == ""){
+    mensaje += "Campo Obligatorio"  
+  }else{
+    if($(input).val().length > 30){
+      mensaje += "Debe tener menos de 30 caracteres "
+    }
+    if($(input).val().charAt(0).toUpperCase() != $(input).val().charAt(0)){
+      mensaje += "Primera letra en mayúscula "
+    }
+    if( ($(input).val().match(/^[a-zA-Z]+$/))){
+      mensaje += "solo debo tener letras"
+    }
+  }
+
+  $(input).siblings().filter("span").remove();
+  var span_nombre = $("<span>" + mensaje + "</span>");
+  $(input).parent().append(span_nombre);
 }
+
+function validarCampoEmail(input){
+  var mensaje = "";
+  /*parte validar lista bicicletas
+  if( $(".form-control option:selected").text() == 0){
+    mensaje += "Debe elegir una bicicleta" 
+  }*/
+    
+  if($(input).val() == ""){
+    mensaje += "Campo Obligatorio"  
+  }else{
+    if(!($(input).val().match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/))){
+      mensaje += "Formato Inválido"
+    }
+  }
+  $(input).siblings().filter("span").remove();
+  var span_nombre = $("<span>" + mensaje + "</span>");
+  $(input).parent().append(span_nombre);
+}
+
+$(".form-signup").submit(function(e){
+  e.preventDefault();
+  $(".form-signup *").filter(":input").each(function(){
+    console.log($(this).attr('type'));
+    if($(this).attr('type') == 'text'){
+      validarCampoTexto($(this));
+    }else if($(this).attr('type') == 'email'){
+      console.log("Hola");
+      validarCampoEmail($(this));
+    }
+  })
+});
+
+/*  validar contraseña*/
+function validarCampoContrasena(input){
+ var mensaje = "";
+  if($(input).val() == ""){
+    mensaje += "Campo Obligatorio"  
+  }else{
+    if($(input).val().length > 6){
+      mensaje += "Debe tener maximo 6 caracteres "
+    }
+    if($(input).val()== 123456){
+      mensaje += "No pueden ser números correlativos "
+    }
+    if($(input).val()== "password"){
+      mensaje += "Formato inválido "
+    }
+  }
+  
+  $(input).siblings().filter("span").remove();
+  var span_contrasena = $("<span>" + mensaje + "</span>");
+  $(input).parent().append(span_contrasena);
+} 
+//validar lista bicicletas
+function validarLista(input){
+ var mensaje = "";
+  if($(input).val() == null || (input).val() ==0){
+    mensaje += "Campo Obligatorio" 
+
+     $(input).siblings().filter("span").remove();
+  var span_lista = $("<span>" + mensaje + "</span>");
+  $(input).parent().append(span_lista);
+  } 
+}
+$(".form-signup").submit(function(e){
+  e.preventDefault();
  
+  $(".form-signup *").filter(":input").each(function(){
+    console.log($(this).attr('password'));
+    if($(this).attr('type') == 'password'){
+      validarCampoContrasena($(this));
+    }
+  
+});
+$(".form-signup *").filter("select").each(function(){
+    console.log($(this).attr('select'));
+      validarLista($(this));
+  })
+});
+/*  validar lista
+function validarLista(select){
+   if($(select).val() == 0){
+         mensaje += "Debe elegir una bicicleta"  
+      }
+
+$(input).siblings().filter("span").remove();
+  var span_contrasena = $("<span>" + mensaje + "</span>");
+  $(input).parent().append(span_contrasena);
+} 
+$(".form-signup").submit(function(e){
+  e.preventDefault();
+  $(".form-signup *").filter(":input").each(function(){
+    console.log($(this).attr('password'));
+    if($(this).attr('type') == 'password'){
+      validarLista($(this));
+    }
+  })
+});*/
+
+
+
