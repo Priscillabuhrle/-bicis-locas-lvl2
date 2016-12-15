@@ -272,5 +272,41 @@ $(".form-signup").submit(function(e){
   })
 });*/
 
+/*validar checkbox
+function validarcheck(input){
+  if($("input.select:checked").length > 0){
+    alert("hola");
+  }
+}*/
+
+/*$(".checkbox").on("click",function(){
+    if (($("input[name*='test']:checked").length)<=0) {
+        alert("Se enviará la información al correo registrado");
+    }
+    return true;
+});*/
+
+/*jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( ".checkbox" ).validate({
+  rules: {
+    field: {
+      required: true
+    }
+  }
+});*/
+
+function validarcheck(input){
+   var mensaje = "";
+  if($("input[type='checkbox'] ").is('checked')){
+    alert("hola");
+  }else{
+    alert("Debe hacer check");
+  }
+}
+validarcheck();
+
 
 
