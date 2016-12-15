@@ -172,6 +172,16 @@ function validarCampoTexto(input){
   var span_nombre = $("<span>" + mensaje + "</span>");
   $(input).parent().append(span_nombre);
 }
+function validarCheck(input){
+  var mensaje= "";
+  if(!($(input).is(":checked"))){
+    mensaje+="Debes dar check"
+  
+    $(input).siblings().filter("span").remove();
+  var span_check = $("<span>" + mensaje + "</span>");
+  $(input).parent().append(span_check);
+  }
+}
 
 function validarCampoEmail(input){
   var mensaje = "";
@@ -201,6 +211,8 @@ $(".form-signup").submit(function(e){
     }else if($(this).attr('type') == 'email'){
       console.log("Hola");
       validarCampoEmail($(this));
+    }else if($(this).attr("type")=='checkbox'){
+      validarCheck($(this));
     }
   })
 });
@@ -298,7 +310,7 @@ $( ".checkbox" ).validate({
   }
 });*/
 
-function validarcheck(input){
+/*function validarcheck(input){
    var mensaje = "";
   if($("input[type='checkbox'] ").is('checked')){
     alert("hola");
@@ -308,5 +320,7 @@ function validarcheck(input){
 }
 validarcheck();
 
-
+function validarCheck(){
+  return $("input[type='checkbox']")
+}*/
 
